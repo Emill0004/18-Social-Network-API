@@ -1,0 +1,23 @@
+{
+  "name": "18-social-network-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Emill0004/18-Social-Network-API.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^5.1.0"
+  },
+  "bugs": {
+    "url": "https://github.com/Emill0004/18-Social-Network-API/issues"
+  },
+  "homepage": "https://github.com/Emill0004/18-Social-Network-API#readme"
+}
