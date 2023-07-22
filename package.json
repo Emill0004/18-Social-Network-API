@@ -14,7 +14,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "mongodb": "^5.1.0"
+    "mongodb": "^5.1.0",
+    "mongoose": "^7.0.2"
   },
   "bugs": {
     "url": "https://github.com/Emill0004/18-Social-Network-API/issues"
