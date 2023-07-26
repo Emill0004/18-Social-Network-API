@@ -1,4 +1,4 @@
-const { User, Thought } = require('../models');
+const { User } = require('../models');
 
 module.exports = {
     async getUsers(req, res) {
@@ -60,9 +60,36 @@ module.exports = {
             res.status(500).json(err);
         }
     },
-};
+    async addFriend(req, res) {
+        try {
+            const user = await User.findOneAndUpdate(
+                { _id: req.params.userId },
+                { $addToSet: { friends: req.body.friend_id } },
+                { runValidators: true, new: true }
+                );
 
-/*
-    addFriend,
-    deleteFriend,
-*/
+            if (!user) {
+                res.status(404).json({ message: 'User not found'});
+            }
+            res.json(user);
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    },
+    async deleteFriend(req, res) {
+        try {
+            const user = await User.findOneAndUpdate(
+                { _id: req.params.userId },
+                { $pullAll: { friends: [ { _id: req.params.friendId } ] } },
+                { runValidators: true, new: true }
+                );
+
+            if (!user) {
+                res.status(404).json({ message: 'User not found'});
+            }
+            res.json(user)
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    }
+};
