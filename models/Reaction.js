@@ -1,5 +1,7 @@
-const { Schema, model } = require('mongoose');
+// dependancies
+const { Schema } = require('mongoose');
 
+// reaction schema
 const reactionSchema = new Schema(
     {
         reactionId: {
@@ -18,7 +20,6 @@ const reactionSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
-            // GETTER METHOD TO FORMAT TIMESTAMP
         },
     },
     {

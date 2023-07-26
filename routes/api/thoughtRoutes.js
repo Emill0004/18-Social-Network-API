@@ -1,3 +1,4 @@
+// dependancies
 const router = require('express').Router();
 const {
     getThoughts,
@@ -9,6 +10,7 @@ const {
     deleteReaction,
 } = require('../../controllers/thoughtController');
 
+// routes
 router.route('/').get(getThoughts).post(createThought);
 
 router.route('/:thoughtId').get(getSingleThought).put(updateThought).delete(deleteThought);

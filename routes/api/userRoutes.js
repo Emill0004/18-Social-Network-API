@@ -1,3 +1,4 @@
+// dependancies
 const router = require('express').Router();
 const {
     getUsers,
@@ -9,6 +10,7 @@ const {
     deleteFriend,
 } = require('../../controllers/userController');
 
+// routes
 router.route('/').get(getUsers).post(createUser);
 
 router.route('/:userId').get(getSingleUser).put(updateUser).delete(deleteUser);
