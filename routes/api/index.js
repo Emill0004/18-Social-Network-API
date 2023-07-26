@@ -9,6 +9,5 @@ module.exports = router;
 
 /*
 TODOS:
-    build addFriend & deleteFriend in userController.js
     build createReaction & deleteReaction in thoughtController.js
 */
