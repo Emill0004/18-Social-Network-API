@@ -1,6 +1,8 @@
+// dependancies
 const { Thought, User } = require('../models');
 
 module.exports = {
+    // get all thoughts
     async getThoughts(req, res) {
         try {
             const thoughts = await Thought.find();
@@ -9,6 +11,7 @@ module.exports = {
             res.status(500).json(err);
         }
     },
+    // get thought by id
     async getSingleThought(req, res) {
         try {
             const thought = await Thought.findOne({ _id: req.params.thoughtId })
@@ -23,6 +26,7 @@ module.exports = {
             res.status(500).json(err);
         }
     },
+    // create new thought
     async createThought(req, res) {
         try {
             const thought = await Thought.create(req.body);
@@ -37,6 +41,7 @@ module.exports = {
             return res.status(500).json(err);
         }
     },
+    // update existing thought
     async updateThought(req, res) {
         try{
             const thought = await Thought.findOneAndUpdate(
@@ -54,6 +59,7 @@ module.exports = {
             res.status(500).json(err);
         }
     },
+    // delete thought
     async deleteThought(req, res) {
         try {
             const thought = await Thought.findOneAndDelete({ _id: req.params.thoughtId });
@@ -61,10 +67,13 @@ module.exports = {
             if (!thought) {
                 res.status(404).json({ message: 'Thought not found'});
             }
+
+            res.json({ message: "Thought deleted!"});
         } catch (err) {
             res.status(500).json(err);
         }
     },
+    // create thought reaction
     async createReaction(req, res) {
         try {
             const thought = await Thought.findOneAndUpdate(
@@ -81,6 +90,7 @@ module.exports = {
             res.status(500).json(err);
         }
     },
+    // delete thought reaction
     async deleteReaction(req, res) {
         try{
             const thought = await Thought.findOneAndUpdate(

@@ -1,6 +1,8 @@
+// dependancies
 const { User } = require('../models');
 
 module.exports = {
+    // get all users
     async getUsers(req, res) {
         try {
             const users = await User.find();
@@ -9,6 +11,7 @@ module.exports = {
             res.status(500).json(err);
         }
     },
+    // get user by id
     async getSingleUser(req, res) {
         try {
             const user = await User.findOne({ _id: req.params.userId })
@@ -23,6 +26,7 @@ module.exports = {
             res.status(500).json(err);
         }
     },
+    // create new user
     async createUser(req, res) {
         try {
             const user = await User.create(req.body);
@@ -32,6 +36,7 @@ module.exports = {
             return res.status(500).json(err);
         }
     },
+    // update existing user
     async updateUser(req, res) {
         try{
             const user = await User.findOneAndUpdate(
@@ -49,6 +54,7 @@ module.exports = {
             res.status(500).json(err);
         }
     },
+    // delete user
     async deleteUser(req, res) {
         try {
             const user = await User.findOneAndDelete({ _id: req.params.userId });
@@ -56,10 +62,13 @@ module.exports = {
             if (!user) {
                 res.status(404).json({ message: 'User not found'});
             }
+
+            res.json({ message: "User deleted!"})
         } catch (err) {
             res.status(500).json(err);
         }
     },
+    // add friend
     async addFriend(req, res) {
         try {
             const user = await User.findOneAndUpdate(
@@ -76,6 +85,7 @@ module.exports = {
             res.status(500).json(err);
         }
     },
+    // delete friend
     async deleteFriend(req, res) {
         try {
             const user = await User.findOneAndUpdate(

@@ -1,6 +1,8 @@
+// dependancies
 const { Schema, model } = require('mongoose');
 const reactionSchema = require('./Reaction');
 
+// thought schema
 const thoughtSchema = new Schema (
     {
         thoughtText: {
@@ -28,6 +30,7 @@ const thoughtSchema = new Schema (
     }
 );
 
+// virtual to return number of reactions
 thoughtSchema.virtual('reactionCount').get(function () {
     return this.reactions.length;
 });
