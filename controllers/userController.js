@@ -62,6 +62,8 @@ module.exports = {
             if (!user) {
                 res.status(404).json({ message: 'User not found'});
             }
+
+            res.json({ message: "User deleted!"})
         } catch (err) {
             res.status(500).json(err);
         }

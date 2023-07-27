@@ -46,4 +46,4 @@
   
   [Project GitHub](https://github.com/Emill0004/18-Social-Network-API)
 
-  [Walkthrough Video]()
+  [Walkthrough Video](https://drive.google.com/file/d/1TE6iq61UaOgLQg2QsrRVdLWniw6-YuxJ/view)
